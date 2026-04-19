@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
@@ -40,8 +41,15 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-2xl font-bold text-primary">
-              GLM<span className="text-accent1">.</span>
+            <Link href="/" className="block">
+              <Image
+                src="/images/Logo_Color-8.png"
+                alt="Global Leadership Makers Logo"
+                width={160}
+                height={45}
+                className="h-[45px] w-auto object-contain"
+                priority
+              />
             </Link>
           </div>
 
