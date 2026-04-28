@@ -19,7 +19,7 @@ export function Card({
   ...props
 }: CardProps) {
   const baseStyles = "rounded-[2rem] overflow-hidden transition-all duration-300";
-  
+
   const variants = {
     solid: "bg-white shadow-soft border border-gray-100",
     glass: "bg-white/70 backdrop-blur-md shadow-soft border border-white/10",

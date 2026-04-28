@@ -1,44 +1,49 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import { BookOpen, Globe, ArrowRight } from "lucide-react";
 
-const articles = [
+const externalResources = [
   {
     id: 1,
-    title: "El rol del liderazgo juvenil en la Acción Climática",
-    category: "Liderazgo y Talento",
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=600",
-    height: "h-96",
+    title: "Blog Oficial GLM",
+    description: "Explora artículos, perspectivas y lecciones de nuestro ecosistema para catalizar tu formación continua.",
+    link: "https://globalleadershipmakers.blogspot.com/",
+    category: "Blogger",
+    icon: Globe,
+    color: "text-blue-500",
+    bgColor: "bg-blue-50",
   },
   {
     id: 2,
-    title: "Metodologías ágiles para innovadores sociales",
-    category: "Emprendimiento",
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=600",
-    height: "h-64",
+    title: "Publicación Destacada 1",
+    description: "Accede a nuestro primer volumen en la Biblioteca Digital con recursos clave para el liderazgo.",
+    link: "https://www.calameo.com/books/008095479ed64cfe94070",
+    category: "Calameo",
+    icon: BookOpen,
+    color: "text-emerald-500",
+    bgColor: "bg-emerald-50",
   },
   {
     id: 3,
-    title: "Resiliencia: navegando la incertidumbre",
-    category: "Desarrollo Sostenible",
-    image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&q=80&w=600",
-    height: "h-80",
+    title: "Publicación Destacada 2",
+    description: "Descubre herramientas y metodologías ágiles en nuestra segunda publicación interactiva.",
+    link: "https://www.calameo.com/books/00809547905b8c8e3d802",
+    category: "Calameo",
+    icon: BookOpen,
+    color: "text-emerald-500",
+    bgColor: "bg-emerald-50",
   },
   {
     id: 4,
-    title: "Construyendo comunidades que trascienden",
-    category: "Conexión Global",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600",
-    height: "h-72",
-  },
-  {
-    id: 5,
-    title: "Claves de un pitch para inversores ángeles",
-    category: "Emprendimiento",
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=600",
-    height: "h-96",
+    title: "Publicación Destacada 3",
+    description: "Aprende sobre resiliencia e innovación social en nuestro tercer documento de la biblioteca.",
+    link: "https://www.calameo.com/books/0080954797d129fda8c63",
+    category: "Calameo",
+    icon: BookOpen,
+    color: "text-emerald-500",
+    bgColor: "bg-emerald-50",
   },
 ];
 
@@ -48,9 +53,19 @@ export default function RecursosPage() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
   return (
-    <div className="bg-white min-h-screen">
-      <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+    <div className="bg-white min-h-[80vh]">
+      <section className="py-32 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -58,48 +73,54 @@ export default function RecursosPage() {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A8A] mb-6 tracking-tight">
-            Recursos y Blog
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0A192F] mb-6 tracking-tight">
+            Hub de Recursos
           </h2>
           <p className="text-xl text-gray-500 max-w-2xl mx-auto">
-            Perspectivas, herramientas y lecciones de nuestro ecosistema para catalizar tu formación continua.
+            Accede a nuestras plataformas externas, blog oficial y biblioteca digital de manera rápida y directa.
           </p>
         </motion.div>
 
-        {/* Masonry Grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-          {articles.map((article, index) => (
-            <motion.div
-              key={article.id}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: index * 0.1 } },
-              }}
-              className="break-inside-avoid relative rounded-[2rem] overflow-hidden group cursor-pointer"
-            >
-              <div className={`w-full ${article.height} relative`}>
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/90 via-[#1E3A8A]/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute bottom-0 left-0 p-8 w-full">
-                  <span className="inline-block py-1 px-3 bg-[#10B981] text-white text-xs font-bold rounded-full mb-3 uppercase tracking-wider">
-                    {article.category}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="grid md:grid-cols-2 gap-8"
+        >
+          {externalResources.map((resource) => {
+            const Icon = resource.icon;
+            return (
+              <motion.div key={resource.id} variants={fadeInUp} className="h-full">
+                <a
+                  href={resource.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block h-full p-10 bg-white border border-slate-200 rounded-[2rem] shadow-sm hover:shadow-md transition-all duration-300 group relative overflow-hidden"
+                >
+                  <div className="flex items-start justify-between mb-6">
+                    <div className={`p-4 rounded-2xl ${resource.bgColor} transition-colors group-hover:bg-opacity-80`}>
+                      <Icon className={`w-8 h-8 ${resource.color}`} />
+                    </div>
+                    <ArrowRight className="w-6 h-6 text-slate-300 group-hover:text-[#F97316] group-hover:translate-x-1 transition-all" />
+                  </div>
+
+                  <span className="inline-block py-1 px-3 bg-slate-100 text-slate-600 text-xs font-bold rounded-full mb-4 uppercase tracking-wider">
+                    {resource.category}
                   </span>
-                  <h3 className="text-white text-xl font-bold leading-snug">
-                    {article.title}
+
+                  <h3 className="text-2xl font-bold text-[#0A192F] mb-3 group-hover:text-[#F97316] transition-colors">
+                    {resource.title}
                   </h3>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+
+                  <p className="text-slate-600 leading-relaxed">
+                    {resource.description}
+                  </p>
+                </a>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </section>
     </div>
   );

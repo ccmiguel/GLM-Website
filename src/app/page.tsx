@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 const heroImages = [
   "/images/hero-1.jpeg",
@@ -99,21 +100,21 @@ export default function Home() {
       {/* Marquesina Slider (Corrido de Imágenes) */}
       <section className="py-12 bg-white border-b border-gray-100 overflow-hidden flex relative z-10">
         <motion.div
-           className="flex gap-6 px-4 items-center whitespace-nowrap"
-           animate={{
-             x: ["0%", "-50%"],
-           }}
-           transition={{
-             repeat: Infinity,
-             ease: "linear",
-             duration: 45,
-           }}
+          className="flex gap-6 px-4 items-center whitespace-nowrap"
+          animate={{
+            x: ["0%", "-50%"],
+          }}
+          transition={{
+            repeat: Infinity,
+            ease: "linear",
+            duration: 45,
+          }}
         >
-           {[...marqueeImages, ...marqueeImages].map((src, idx) => (
-             <div key={idx} className="relative w-72 h-48 flex-shrink-0 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
-               <Image src={src} alt={`GLM Corrido ${idx}`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 300px" />
-             </div>
-           ))}
+          {[...marqueeImages, ...marqueeImages].map((src, idx) => (
+            <div key={idx} className="relative w-72 h-48 flex-shrink-0 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+              <Image src={src} alt={`GLM Corrido ${idx}`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 300px" />
+            </div>
+          ))}
         </motion.div>
       </section>
 
@@ -136,7 +137,7 @@ export default function Home() {
               </p>
               <Button variant="primary" size="lg">Conoce nuestra historia</Button>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -145,9 +146,9 @@ export default function Home() {
               className="relative"
             >
               <div className="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl">
-                <Image 
-                  src={queEsGLMImage} 
-                  alt="Qué es GLM - Comunidad" 
+                <Image
+                  src={queEsGLMImage}
+                  alt="Qué es GLM - Comunidad"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -167,15 +168,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/20">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="py-4">
-              <p className="text-5xl lg:text-6xl font-bold text-white mb-2">+2000</p>
+              <p className="text-5xl lg:text-6xl font-bold text-white mb-2"><AnimatedCounter prefix="+" value={2000} /></p>
               <p className="text-accent1 font-bold tracking-widest uppercase text-sm">Movilizados</p>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="py-4">
-              <p className="text-5xl lg:text-6xl font-bold text-white mb-2">+680</p>
+              <p className="text-5xl lg:text-6xl font-bold text-white mb-2"><AnimatedCounter prefix="+" value={680} /></p>
               <p className="text-accent1 font-bold tracking-widest uppercase text-sm">Participantes</p>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="py-4">
-              <p className="text-5xl lg:text-6xl font-bold text-white mb-2">+13</p>
+              <p className="text-5xl lg:text-6xl font-bold text-white mb-2"><AnimatedCounter prefix="+" value={13} /></p>
               <p className="text-accent1 font-bold tracking-widest uppercase text-sm">Proyectos</p>
             </motion.div>
           </div>
@@ -186,7 +187,7 @@ export default function Home() {
       <section className="py-24 bg-white overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center flex-col-reverse lg:flex-row">
-            
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -194,10 +195,10 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="relative order-2 lg:order-1"
             >
-              <div className="relative w-full aspect-square md:aspect-[4/3] rounded-[3rem] overflow-hidden shadow-xl border-8 border-white bg-gray-100">
-                <Image 
-                  src={impactImage} 
-                  alt="Impacto que trasciende" 
+              <div className="relative w-full aspect-square md:aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100">
+                <Image
+                  src={impactImage}
+                  alt="Impacto que trasciende"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -219,7 +220,6 @@ export default function Home() {
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Cada uno de nuestros programas está diseñado con un propósito claro: generar un efecto multiplicador. Los jóvenes líderes acceden a financiamiento, mentoría y visibilidad para ejecutar proyectos que resuelven los retos más urgentes de sus comunidades.
               </p>
-              <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white">Ver reporte de impacto</Button>
             </motion.div>
 
           </div>
@@ -228,80 +228,80 @@ export default function Home() {
 
       {/* 4. Sección "Qué hacemos" (Impulsamos Liderazgo) */}
       <section className="py-24 bg-gray-50">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mb-16"
-            >
-              <h2 className="text-sm font-bold text-accent1 uppercase tracking-widest mb-3">Qué hacemos</h2>
-              <h3 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-                Impulsamos Liderazgo
-              </h3>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Estructuramos programas y experiencias de alto impacto para brindar rutas claras de desarrollo y sostenibilidad a las ideas jóvenes.
-              </p>
-            </motion.div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16"
+          >
+            <h2 className="text-sm font-bold text-accent1 uppercase tracking-widest mb-3">Qué hacemos</h2>
+            <h3 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+              Impulsamos Liderazgo
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Estructuramos programas y experiencias de alto impacto para brindar rutas claras de desarrollo y sostenibilidad a las ideas jóvenes.
+            </p>
+          </motion.div>
 
-            {/* Grid/Galería para Impulsamos Liderazgo */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              {galleryImages.map((src, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="group relative w-full aspect-square md:aspect-[4/5] rounded-[2rem] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 bg-white"
-                >
-                  <Image 
-                    src={src}
-                    alt={`Impulsamos liderazgo ${idx + 1}`}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 768px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </motion.div>
-              ))}
-            </div>
-            <div className="mt-12">
-               <Button variant="primary" size="lg">Explorar todos los programas</Button>
-            </div>
-         </div>
+          {/* Grid/Galería para Impulsamos Liderazgo */}
+          <div className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar">
+            {galleryImages.map((src, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="group relative w-72 md:w-96 flex-shrink-0 aspect-square md:aspect-[4/5] rounded-[2rem] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 bg-white snap-center"
+              >
+                <Image
+                  src={src}
+                  alt={`Impulsamos liderazgo ${idx + 1}`}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 384px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </motion.div>
+            ))}
+          </div>
+          <div className="mt-12">
+            <Button variant="primary" size="lg">Explorar todos los programas</Button>
+          </div>
+        </div>
       </section>
 
       {/* 5. Call to Action Final ("Este es tu momento") */}
       <section className="relative py-32 overflow-hidden bg-primary">
         <div className="absolute inset-0 z-0 opacity-30">
-           <Image 
-              src={ctaImage} 
-              alt="Este es tu momento" 
-              fill
-              className="object-cover filter brightness-50 saturate-0"
-              sizes="100vw"
-           />
+          <Image
+            src={ctaImage}
+            alt="Este es tu momento"
+            fill
+            className="object-cover filter brightness-50 saturate-0"
+            sizes="100vw"
+          />
         </div>
         <div className="absolute inset-0 bg-primary/90 z-0 mix-blend-multiply"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-5xl md:text-6xl font-black text-white mb-8">
-                Este es tu momento
-              </h2>
-              <p className="text-xl md:text-2xl text-white/90 mb-12 font-light">
-                Únete a la red de líderes que están definiendo el futuro de nuestra región. No importa cuán grande sea el desafío, juntos tenemos el talento para resolverlo.
-              </p>
-              <Button variant="accent1" size="lg" className="text-lg px-12 py-5 shadow-xl hover:scale-105 transition-transform duration-300">
-                Súmate a la comunidad
-              </Button>
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-5xl md:text-6xl font-black text-white mb-8">
+              Este es tu momento
+            </h2>
+            <p className="text-xl md:text-2xl text-white/90 mb-12 font-light">
+              Únete a la red de líderes que están definiendo el futuro de nuestra región. No importa cuán grande sea el desafío, juntos tenemos el talento para resolverlo.
+            </p>
+            <Button variant="accent1" size="lg" className="text-lg px-12 py-5 shadow-xl hover:scale-105 transition-transform duration-300">
+              Súmate a la comunidad
+            </Button>
+          </motion.div>
         </div>
       </section>
 

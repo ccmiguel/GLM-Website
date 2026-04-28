@@ -31,11 +31,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 backdrop-blur-md shadow-soft py-4"
-          : "bg-white/50 backdrop-blur-sm py-6"
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
+        ? "bg-white/80 backdrop-blur-md shadow-soft py-4"
+        : "bg-white/50 backdrop-blur-sm py-6"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
@@ -45,9 +44,9 @@ export default function Navbar() {
               <Image
                 src="/images/Logo_Color-8.png"
                 alt="Global Leadership Makers Logo"
-                width={160}
-                height={45}
-                className="h-[45px] w-auto object-contain"
+                width={250}
+                height={75}
+                className="h-[75px] w-auto object-contain"
                 priority
               />
             </Link>
@@ -61,9 +60,8 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.path}
-                  className={`text-sm font-medium transition-colors hover:text-accent1 ${
-                    isActive ? "text-primary font-bold" : "text-gray-600"
-                  }`}
+                  className={`text-sm font-medium transition-colors hover:text-orange-500 ${isActive ? "text-primary font-bold" : "text-gray-600"
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -75,7 +73,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-primary hover:text-accent1 focus:outline-none"
+              className="text-primary hover:text-orange-500 focus:outline-none"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -94,9 +92,8 @@ export default function Navbar() {
                   key={link.name}
                   href={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block text-base font-medium transition-colors hover:text-accent1 ${
-                    isActive ? "text-primary font-bold" : "text-gray-600"
-                  }`}
+                  className={`block text-base font-medium transition-colors hover:text-orange-500 ${isActive ? "text-primary font-bold" : "text-gray-600"
+                    }`}
                 >
                   {link.name}
                 </Link>

@@ -25,17 +25,32 @@ export default function NosotrosPage() {
     {
       name: "Maria Clavel Condori",
       role: "Directora General",
+      quote: "El talento joven es el motor de cambio más poderoso.",
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400",
     },
     {
       name: "Alejandra Quispe",
       role: "Directora de Comunidad y Programas",
+      quote: "Conectamos ideas para transformarlas en impacto real.",
       image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400",
     },
     {
       name: "Carolina Calamani",
       role: "Directora de Gestión Financiera y Operativa",
+      quote: "Construimos bases sólidas para proyectos sostenibles.",
       image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=400",
+    },
+    {
+      name: "[Nombre del Embajador]",
+      role: "Embajador VIP",
+      quote: "Inspirando a la próxima generación de líderes.",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400",
+    },
+    {
+      name: "[Nombre del Embajador]",
+      role: "Embajador VIP",
+      quote: "Rompiendo barreras a través de la innovación.",
+      image: "https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?auto=format&fit=crop&q=80&w=400",
     },
   ];
 
@@ -96,7 +111,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* 1. Historia */}
-      <section className="py-24 px-6 md:px-12 lg:px-24">
+      <section className="py-32 px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -105,7 +120,7 @@ export default function NosotrosPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A8A] mb-8 tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#0A192F] mb-8 tracking-tight">
                 Nuestra historia:<br />Cómo empezó todo
               </h2>
               <div className="space-y-6 text-lg text-gray-600 leading-relaxed max-w-xl">
@@ -138,7 +153,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* 2. Propósito y Misión */}
-      <section className="py-24 px-6 md:px-12 lg:px-24 bg-gray-50/50">
+      <section className="py-32 px-6 md:px-12 lg:px-24 bg-gray-50/50">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center flex-col-reverse lg:flex-row">
 
@@ -166,16 +181,11 @@ export default function NosotrosPage() {
               className="flex flex-col gap-10"
             >
               <motion.div variants={fadeInUp} className="bg-white p-10 shadow-sm rounded-[2rem] border border-gray-100 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-2 h-full bg-[#1E3A8A]"></div>
-                <h3 className="text-2xl font-bold text-[#1E3A8A] mb-4">Nuestro Propósito</h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <div className="absolute top-0 left-0 w-2 h-full bg-[#0A192F]"></div>
+                <h3 className="text-2xl font-bold text-[#0A192F] mb-4">Nuestro propósito</h3>
+                <p className="text-lg text-gray-600 leading-relaxed mb-4">
                   Impulsar el talento de jóvenes líderes, convirtiendo su visión en impacto real y conectándolos con oportunidades justas.
                 </p>
-              </motion.div>
-
-              <motion.div variants={fadeInUp} className="bg-white p-10 shadow-sm rounded-[2rem] border border-gray-100 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-2 h-full bg-[#10B981]"></div>
-                <h3 className="text-2xl font-bold text-[#10B981] mb-4">Nuestra Misión</h3>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   Formamos, inspiramos y conectamos a jóvenes líderes, emprendedores e intraemprendedores comprometidos con transformar sus comunidades con impacto global.
                 </p>
@@ -187,7 +197,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* 3. Estructura Organizacional */}
-      <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto bg-white">
+      <section className="py-32 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto bg-white">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -195,7 +205,7 @@ export default function NosotrosPage() {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A8A] mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0A192F] mb-6">
             Estructura Organizacional
           </h2>
           <p className="text-xl text-gray-500">
@@ -208,25 +218,25 @@ export default function NosotrosPage() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="grid md:grid-cols-4 gap-6"
+          className="grid md:grid-cols-4 gap-8"
         >
           {structure.map((item, index) => (
             <motion.div key={index} variants={fadeInUp}>
-              <Card variant="glass" hoverable className="h-full p-8 flex flex-col bg-[#1E3A8A]/[0.02] border-[#1E3A8A]/10 text-center">
-                <h3 className="text-xl font-bold text-[#1E3A8A] mb-3">
+              <div className="h-full p-8 flex flex-col bg-white shadow-sm hover:shadow-md transition-shadow border border-slate-200 rounded-[2rem] text-center">
+                <h3 className="text-xl font-bold text-[#0A192F] mb-3">
                   {item.title}
                 </h3>
                 <p className="text-base text-gray-600">
                   {item.description}
                 </p>
-              </Card>
+              </div>
             </motion.div>
           ))}
         </motion.div>
       </section>
 
-      {/* 4. Equipo Especializado */}
-      <section className="py-24 px-6 md:px-12 lg:px-24 bg-gray-50/50">
+      {/* 4. Equipo CORE y Embajadores VIP */}
+      <section className="py-32 px-6 md:px-12 lg:px-24 bg-gray-50/50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial="hidden"
@@ -235,11 +245,11 @@ export default function NosotrosPage() {
             variants={fadeInUp}
             className="text-center mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A8A] mb-6 tracking-tight">
-              Equipo Especializado
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0A192F] mb-6 tracking-tight">
+              Equipo CORE y Embajadores VIP
             </h2>
             <p className="text-xl text-gray-500 max-w-2xl mx-auto">
-              Conoce a las mujeres líderes que hacen posible nuestra misión.
+              Conoce a las líderes que hacen posible nuestra misión y a los embajadores que expanden nuestro impacto.
             </p>
           </motion.div>
 
@@ -248,25 +258,30 @@ export default function NosotrosPage() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="grid md:grid-cols-3 gap-12"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {team.map((member, index) => (
-              <motion.div key={index} variants={fadeInUp} className="flex flex-col items-center text-center group">
-                <div className="relative w-56 h-56 rounded-full overflow-hidden mb-8 shadow-xl transition-transform duration-500 group-hover:scale-105 group-hover:shadow-2xl border-4 border-white">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 224px, 224px"
-                  />
-                </div>
-                <h3 className="text-2xl font-bold text-[#1E3A8A] font-sans mb-2 tracking-tight">
-                  {member.name}
-                </h3>
-                <p className="text-lg text-gray-500 font-medium">
-                  {member.role}
-                </p>
+              <motion.div key={index} variants={fadeInUp} className="h-full">
+                <Card variant="glass" className="flex flex-col items-center text-center p-8 h-full border-[#0A192F]/10 hover:shadow-lg transition-shadow">
+                  <div className="relative w-40 h-40 rounded-full overflow-hidden mb-6 border-4 border-white shadow-md">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 160px, 160px"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-[#0A192F] font-sans mb-1 tracking-tight">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm font-bold text-[#10B981] uppercase tracking-wider mb-4">
+                    {member.role}
+                  </p>
+                  <p className="text-gray-600 italic">
+                    "{member.quote}"
+                  </p>
+                </Card>
               </motion.div>
             ))}
           </motion.div>
