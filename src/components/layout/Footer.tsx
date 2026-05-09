@@ -56,7 +56,7 @@ export function Footer() {
           <p>© {new Date().getFullYear()} Global Leadership Makers. Todos los derechos reservados.</p>
           <p className="mt-2 md:mt-0">Desarrollado con impacto global.</p>
         </div>
-        <p className="text-xs text-slate-400 text-center w-full mt-4">
+        <p className="text-sm font-medium text-indigo-200/80 text-center w-full mt-4">
           Desarrollado por Miguel Calderon
         </p>
       </div>

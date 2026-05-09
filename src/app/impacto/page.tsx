@@ -198,6 +198,74 @@ export default function ImpactoPage() {
           })}
         </motion.div>
       </section>
+
+      {/* 4. Galería de Proyectos Destacados */}
+      <section className="py-32 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto bg-white border-t border-gray-100">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeInUp}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0A192F] mb-6">
+            Proyectos Destacados
+          </h2>
+          <p className="text-xl text-gray-500 max-w-2xl mx-auto">
+            Iniciativas clave que demuestran nuestra capacidad de ejecución y alianzas estratégicas.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="grid md:grid-cols-2 gap-8"
+        >
+          {[
+            {
+              title: "Conexión América Latina 2025",
+              aliado: "Fundación Maya",
+              image: "/images/CORRIDO/Corrido-5.png",
+            },
+            {
+              title: "Ecoaduana",
+              aliado: "Carrera de Comercio Internacional",
+              image: "/images/CORRIDO/Corrido-6.png",
+            },
+            {
+              title: "Futuro Verde",
+              aliado: "GAMLP",
+              image: "/images/CORRIDO/Corrido-7.png",
+            },
+            {
+              title: "Congreso Deep Tech",
+              aliado: "Hub de Innovación",
+              image: "/images/CORRIDO/Corrido-8.png",
+            }
+          ].map((proyecto, index) => (
+            <motion.div key={index} variants={fadeInUp} className="group relative rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer h-80">
+              <div className="absolute inset-0 w-full h-full">
+                <img src={proyecto.image} alt={proyecto.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-[#0A192F]/60 group-hover:bg-[#0A192F]/40 transition-colors duration-500 mix-blend-multiply"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F] via-[#0A192F]/60 to-transparent"></div>
+              </div>
+              
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <span className="inline-block py-1.5 px-4 bg-[#F97316] text-white text-xs font-bold rounded-full mb-4 uppercase tracking-wider shadow-lg">
+                    Aliado: {proyecto.aliado}
+                  </span>
+                  <h3 className="text-3xl font-bold text-white mb-2">
+                    {proyecto.title}
+                  </h3>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
     </div>
   );
 }

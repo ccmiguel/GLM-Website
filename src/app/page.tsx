@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+import { Brain, Rocket, Lightbulb, Globe2, Users, Briefcase } from "lucide-react";
 
 const heroImages = [
   "/images/hero-1.jpeg",
@@ -25,10 +26,10 @@ const galleryImages = [
 ];
 
 const queEsGLMImage = "/images/que-es-global.jpg";
-const impactImage = "/images/impacto.jpeg";
+const impactImage = "/images/proposito.jpeg";
 const ctaImage = "/images/call-to-action.jpg";
 
-const marqueeImages = Array.from({ length: 16 }, (_, i) => `/images/CORRIDO/Corrido-${i + 1}.png`);
+const marqueeImages = Array.from({ length: 15 }, (_, i) => `/images/CORRIDO/Corrido-${i + 1}.png`);
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -58,6 +59,8 @@ export default function Home() {
               alt="GLM Hero"
               fill
               className="object-cover"
+              sizes="100vw"
+              quality={95}
               priority
             />
             <div className="absolute inset-0 bg-primary/60 mix-blend-multiply"></div>
@@ -75,7 +78,7 @@ export default function Home() {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
               Activamos líderes que transforman ideas en <span className="text-accent1">impacto real</span>.
             </h1>
-            <p className="text-lg md:text-2xl text-white/90 mb-10 leading-relaxed font-light">
+            <p className="text-lg md:text-2xl text-white/90 mb-10 leading-loose font-light">
               En Global Leadership Makers conectamos talento, comunidad y propósito para impulsar a una nueva generación de líderes.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -112,14 +115,14 @@ export default function Home() {
         >
           {[...marqueeImages, ...marqueeImages].map((src, idx) => (
             <div key={idx} className="relative w-72 h-48 flex-shrink-0 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
-              <Image src={src} alt={`GLM Corrido ${idx}`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 300px" />
+              <Image src={src} alt={`GLM Corrido ${idx}`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 300px" quality={95} />
             </div>
           ))}
         </motion.div>
       </section>
 
       {/* 2. Sección "Qué es GLM" */}
-      <section className="py-24 bg-gray-50 overflow-hidden relative">
+      <section className="py-32 bg-gray-50 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -145,15 +148,17 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl">
+              <div className="relative w-full aspect-[16/10] rounded-[2rem] overflow-hidden shadow-2xl">
                 <Image
-                  src={queEsGLMImage}
+                  src="/images/CORRIDO/Corrido-1.png"
                   alt="Qué es GLM - Comunidad"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                  quality={100}
+                  priority
+                  unoptimized={true}
                 />
-                <div className="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
               </div>
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-accent1 rounded-full -z-10 blur-2xl opacity-50"></div>
               <div className="absolute -top-6 -right-6 w-32 h-32 bg-accent2 rounded-full -z-10 blur-2xl opacity-50"></div>
@@ -166,25 +171,25 @@ export default function Home() {
       <section className="bg-primary py-16 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/20">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="py-4">
-              <p className="text-5xl lg:text-6xl font-bold text-white mb-2"><AnimatedCounter prefix="+" value={2000} /></p>
-              <p className="text-accent1 font-bold tracking-widest uppercase text-sm">Movilizados</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/20 max-w-5xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="py-4 flex flex-col items-center justify-center w-full">
+              <div className="text-5xl lg:text-6xl font-bold text-white mb-2"><AnimatedCounter prefix="+" value={2200} /></div>
+              <p className="text-accent1 font-bold tracking-widest uppercase text-sm max-w-[200px] text-center whitespace-nowrap">Talentos movilizados</p>
             </motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="py-4">
-              <p className="text-5xl lg:text-6xl font-bold text-white mb-2"><AnimatedCounter prefix="+" value={680} /></p>
-              <p className="text-accent1 font-bold tracking-widest uppercase text-sm">Participantes</p>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="py-4 flex flex-col items-center justify-center w-full">
+              <div className="text-5xl lg:text-6xl font-bold text-white mb-2"><AnimatedCounter prefix="+" value={700} /></div>
+              <p className="text-accent1 font-bold tracking-widest uppercase text-sm max-w-[200px] text-center whitespace-nowrap">Jóvenes fortaleciendo capacidades</p>
             </motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="py-4">
-              <p className="text-5xl lg:text-6xl font-bold text-white mb-2"><AnimatedCounter prefix="+" value={13} /></p>
-              <p className="text-accent1 font-bold tracking-widest uppercase text-sm">Proyectos</p>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="py-4 flex flex-col items-center justify-center w-full">
+              <div className="text-5xl lg:text-6xl font-bold text-white mb-2"><AnimatedCounter prefix="+" value={13} /></div>
+              <p className="text-accent1 font-bold tracking-widest uppercase text-sm max-w-[200px] text-center whitespace-nowrap">Proyectos de impacto</p>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* 3. Sección de Impacto: "Impacto que trasciende" */}
-      <section className="py-24 bg-white overflow-hidden relative">
+      <section className="py-32 bg-white overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center flex-col-reverse lg:flex-row">
 
@@ -195,13 +200,14 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="relative order-2 lg:order-1"
             >
-              <div className="relative w-full aspect-square md:aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100">
+              <div className="relative w-full aspect-[16/10] rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100">
                 <Image
                   src={impactImage}
                   alt="Impacto que trasciende"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                  quality={95}
                 />
               </div>
             </motion.div>
@@ -227,7 +233,7 @@ export default function Home() {
       </section>
 
       {/* 4. Sección "Qué hacemos" (Impulsamos Liderazgo) */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -245,27 +251,46 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Grid/Galería para Impulsamos Liderazgo */}
+          {/* Grid/Galería para Áreas de Acción */}
           <div className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar">
-            {galleryImages.map((src, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="group relative w-72 md:w-96 flex-shrink-0 aspect-square md:aspect-[4/5] rounded-[2rem] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 bg-white snap-center"
-              >
-                <Image
-                  src={src}
-                  alt={`Impulsamos liderazgo ${idx + 1}`}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, 384px"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </motion.div>
-            ))}
+            {[
+              { title: "Liderazgo Consciente", desc: "Formación de líderes con mentalidad ética y disruptiva.", icon: Brain, image: "/images/talento-1.jpg" },
+              { title: "Ciencia y Tecnología", desc: "Promoción de investigación aplicada e innovación científica.", icon: Rocket, image: "/images/talento-2.jpg" },
+              { title: "Innovación Social", desc: "Soluciones creativas para retos comunitarios y emprendimiento.", icon: Lightbulb, image: "/images/talento-3.jpg" },
+              { title: "Agenda 2030 y Sostenibilidad", desc: "Acción climática y conciencia ambiental global.", icon: Globe2, image: "/images/talento-4.jpg" },
+              { title: "Ciudadanía y Participación", desc: "Fortalecimiento de la voz joven en la sociedad civil.", icon: Users, image: "/images/talento-5.jpg" },
+              { title: "Habilidades del Futuro", desc: "Preparación para el mercado laboral y empleabilidad global.", icon: Briefcase, image: "/images/talento-6.jpg" }
+            ].map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  className="group relative w-72 md:w-80 flex-shrink-0 aspect-[4/5] rounded-[2rem] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 bg-white snap-center cursor-pointer"
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                    quality={95}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent opacity-90 transition-opacity duration-300"></div>
+
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end text-left">
+                    <div className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent1 transition-colors duration-300">
+                      <Icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h4 className="text-2xl font-bold text-white mb-2 tracking-tight leading-tight">{item.title}</h4>
+                    <p className="text-sm text-white/80 leading-relaxed opacity-0 max-h-0 overflow-hidden group-hover:max-h-20 group-hover:opacity-100 transition-all duration-500 ease-in-out">{item.desc}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
           <div className="mt-12">
             <Button variant="primary" size="lg">Explorar todos los programas</Button>
@@ -282,6 +307,7 @@ export default function Home() {
             fill
             className="object-cover filter brightness-50 saturate-0"
             sizes="100vw"
+            quality={95}
           />
         </div>
         <div className="absolute inset-0 bg-primary/90 z-0 mix-blend-multiply"></div>

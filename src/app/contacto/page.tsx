@@ -7,7 +7,7 @@ import { Send, MapPin, Mail } from "lucide-react";
 
 export default function ContactoPage() {
   const [formData, setFormData] = useState({ name: "", email: "", country: "", state: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -22,21 +22,37 @@ export default function ContactoPage() {
     },
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.country || !formData.state || !formData.message) return;
 
-    // Simulate sending
     setStatus("sending");
-    setTimeout(() => {
-      setStatus("sent");
-      setFormData({ name: "", email: "", country: "", state: "", message: "" });
-    }, 1500);
+    try {
+      const response = await fetch("https://formspree.io/f/mwvywebj", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("sent");
+        setFormData({ name: "", email: "", country: "", state: "", message: "" });
+        setTimeout(() => setStatus("idle"), 3000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 3000);
+      }
+    } catch (error) {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 3000);
+    }
   };
 
   return (
     <div className="bg-white min-h-[80vh]">
-      <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+      <section className="py-32 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
 
         {/* Left Column: Form Info */}
         <motion.div
@@ -151,13 +167,18 @@ export default function ContactoPage() {
                 />
               </div>
 
+              {status === "error" && (
+                <p className="text-red-500 text-sm font-medium text-center">
+                  Hubo un problema, por favor intenta nuevamente
+                </p>
+              )}
               <button
                 type="submit"
                 disabled={status === "sending" || status === "sent"}
-                className={`w-full py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center space-x-2 transition-all duration-300 ${status === "sent" ? "bg-[#10B981]" : "bg-[#0A192F] hover:bg-[#10B981]"}`}
+                className={`w-full py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center space-x-2 transition-all duration-300 ${status === "sent" ? "bg-[#10B981]" : status === "error" ? "bg-red-500 hover:bg-red-600" : "bg-[#0A192F] hover:bg-[#10B981]"}`}
               >
-                <span>{status === "idle" ? "Enviar Mensaje" : status === "sending" ? "Enviando..." : "¡Enviado exitosamente!"}</span>
-                {status === "idle" && <Send className="w-5 h-5 ml-2" />}
+                <span>{status === "idle" || status === "error" ? "Enviar Mensaje" : status === "sending" ? "Enviando..." : "¡Enviado exitosamente!"}</span>
+                {(status === "idle" || status === "error") && <Send className="w-5 h-5 ml-2" />}
               </button>
             </form>
           </Card>
@@ -165,7 +186,7 @@ export default function ContactoPage() {
       </section>
 
       {/* Encuentra tu lugar - Roles */}
-      <section className="py-24 px-6 md:px-12 lg:px-24 bg-gray-50/50">
+      <section className="py-32 px-6 md:px-12 lg:px-24 bg-gray-50/50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial="hidden"

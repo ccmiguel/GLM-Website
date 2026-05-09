@@ -113,7 +113,7 @@ export default function NosotrosPage() {
       {/* 1. Historia */}
       <section className="py-32 px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-24 items-center">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -123,7 +123,7 @@ export default function NosotrosPage() {
               <h2 className="text-4xl md:text-5xl font-bold text-[#0A192F] mb-8 tracking-tight">
                 Nuestra historia:<br />Cómo empezó todo
               </h2>
-              <div className="space-y-6 text-lg text-gray-600 leading-relaxed max-w-xl">
+              <div className="space-y-6 text-xl text-gray-600 leading-loose max-w-2xl">
                 <p>
                   Global Leadership Makers nace a partir de una pregunta simple, pero poderosa: ¿Qué pasaría si el talento joven tuviera acceso real a oportunidades, comunidad y dirección?
                 </p>
@@ -258,11 +258,11 @@ export default function NosotrosPage() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-12"
           >
             {team.map((member, index) => (
               <motion.div key={index} variants={fadeInUp} className="h-full">
-                <Card variant="glass" className="flex flex-col items-center text-center p-8 h-full border-[#0A192F]/10 hover:shadow-lg transition-shadow">
+                <Card variant="glass" className="flex flex-col items-center text-center p-12 h-full rounded-[2rem] border border-[#0A192F]/10 hover:shadow-xl transition-all duration-300">
                   <div className="relative w-40 h-40 rounded-full overflow-hidden mb-6 border-4 border-white shadow-md">
                     <Image
                       src={member.image}
@@ -285,6 +285,65 @@ export default function NosotrosPage() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+      {/* 5. Voces del Futuro (Testimonios) */}
+      <section className="py-32 px-6 md:px-12 lg:px-24 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0A192F] mb-6 tracking-tight">
+              Voces del Futuro
+            </h2>
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto">
+              El impacto real contado por quienes lo construyen.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-10">
+            {[
+              {
+                name: "Keyla Condori",
+                quote: "GLM te da las herramientas para pasar de la idea a la acción.",
+              },
+              {
+                name: "Brisa Ramos",
+                quote: "Entrar en acción es el empujón clave que recibes.",
+              }
+            ].map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="bg-gray-50 rounded-[2rem] p-10 border border-gray-100 shadow-sm relative"
+              >
+                <div className="text-[#0A192F]/10 mb-6">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.017 21L16.417 14.59C16.667 13.84 16.817 13.11 16.867 12.4C16.917 11.69 16.897 11.02 16.807 10.39C16.717 9.76001 16.537 9.17001 16.267 8.62001C15.997 8.07001 15.617 7.55001 15.127 7.06001L17.117 5.14001C17.917 5.92001 18.577 6.78001 19.097 7.72001C19.617 8.66001 20.007 9.66001 20.267 10.72C20.527 11.78 20.657 12.87 20.657 13.99C20.657 15.11 20.487 16.22 20.147 17.32L17.517 22H14.017ZM6.017 21L8.417 14.59C8.667 13.84 8.817 13.11 8.867 12.4C8.917 11.69 8.897 11.02 8.807 10.39C8.717 9.76001 8.537 9.17001 8.267 8.62001C7.997 8.07001 7.617 7.55001 7.127 7.06001L9.117 5.14001C9.917 5.92001 10.577 6.78001 11.097 7.72001C11.617 8.66001 12.007 9.66001 12.267 10.72C12.527 11.78 12.657 12.87 12.657 13.99C12.657 15.11 12.487 16.22 12.147 17.32L9.517 22H6.017Z" />
+                  </svg>
+                </div>
+                <p className="text-xl text-gray-700 italic mb-8 leading-relaxed">
+                  "{testimonial.quote}"
+                </p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-[#0A192F] rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#0A192F]">{testimonial.name}</h4>
+                    <span className="text-sm text-gray-500">Graduada GLM</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
