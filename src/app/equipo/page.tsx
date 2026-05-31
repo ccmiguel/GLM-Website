@@ -183,18 +183,18 @@ export default function EquipoPage() {
         </motion.div>
       </section>
 
-      {/* 2. Ecosystem Leaders */}
+      {/* 2. VIP Ambassadors */}
       <section className="py-24 px-6 md:px-12 lg:px-24 bg-gray-50/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center p-3 bg-accent2/10 rounded-2xl text-accent2 mb-4">
-              <UserCheck className="w-6 h-6" />
+            <div className="inline-flex items-center justify-center p-3 bg-yellow-500/10 rounded-2xl text-yellow-600 mb-4">
+              <Star className="w-6 h-6" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight">
-              Ecosystem Leaders
+              VIP Ambassadors
             </h2>
             <p className="text-lg text-gray-500 mt-2">
-              Líderes estratégicos en las áreas de desarrollo de GLM.
+              Líderes de impacto y speakers internacionales que amplifican la voz de la juventud.
             </p>
           </div>
 
@@ -205,47 +205,44 @@ export default function EquipoPage() {
             variants={staggerContainer}
             className="grid md:grid-cols-3 gap-8"
           >
-            {ecosystemLeaders.map((leader, idx) => (
+            {vipAmbassadors.map((ambassador, idx) => (
               <motion.div
                 key={idx}
                 variants={fadeInUp}
-                className="bg-white rounded-[2rem] border border-gray-100/60 p-8 flex flex-col items-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
+                className="bg-white rounded-[2rem] border border-slate-100 p-8 flex flex-col items-center text-center hover:shadow-md transition-shadow group"
               >
-                <div className="relative w-36 h-36 rounded-full overflow-hidden mb-6 border-4 border-white shadow-md group-hover:scale-105 transition-transform duration-300 bg-slate-200">
+                <div className="relative w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-white shadow-md group-hover:scale-105 transition-transform duration-300 bg-slate-200">
                   <Image
-                    src={leader.image}
-                    alt={leader.name}
+                    src={ambassador.image}
+                    alt={ambassador.name}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 144px, 144px"
+                    sizes="(max-width: 768px) 128px, 128px"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-primary mb-1 tracking-tight">
-                  {leader.name}
+                <h3 className="text-lg font-bold text-primary mb-1 tracking-tight">
+                  {ambassador.name}
                 </h3>
-                <p className="text-sm font-semibold text-accent2 uppercase tracking-wider mb-4">
-                  {leader.role}
+                <p className="text-xs font-bold text-yellow-600 uppercase tracking-widest">
+                  {ambassador.role}
                 </p>
-                <a href={leader.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-50 rounded-full shadow-inner text-gray-400 hover:text-primary hover:bg-accent2/10 transition-colors" title="LinkedIn">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
-                </a>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* 3. VIP Ambassadors */}
+      {/* 3. Ecosystem Leaders */}
       <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center p-3 bg-yellow-500/10 rounded-2xl text-yellow-600 mb-4">
-            <Star className="w-6 h-6" />
+          <div className="inline-flex items-center justify-center p-3 bg-accent2/10 rounded-2xl text-accent2 mb-4">
+            <UserCheck className="w-6 h-6" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight">
-            VIP Ambassadors
+            Ecosystem Leaders
           </h2>
           <p className="text-lg text-gray-500 mt-2">
-            Líderes de impacto y speakers internacionales que amplifican la voz de la juventud.
+            Líderes estratégicos en las áreas de desarrollo de GLM.
           </p>
         </div>
 
@@ -256,27 +253,30 @@ export default function EquipoPage() {
           variants={staggerContainer}
           className="grid md:grid-cols-3 gap-8"
         >
-          {vipAmbassadors.map((ambassador, idx) => (
+          {ecosystemLeaders.map((leader, idx) => (
             <motion.div
               key={idx}
               variants={fadeInUp}
-              className="bg-white rounded-[2rem] border border-slate-100 p-8 flex flex-col items-center text-center hover:shadow-md transition-shadow group"
+              className="bg-white rounded-[2rem] border border-gray-100/60 p-8 flex flex-col items-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
             >
-              <div className="relative w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-white shadow-md group-hover:scale-105 transition-transform duration-300 bg-slate-200">
+              <div className="relative w-36 h-36 rounded-full overflow-hidden mb-6 border-4 border-white shadow-md group-hover:scale-105 transition-transform duration-300 bg-slate-200">
                 <Image
-                  src={ambassador.image}
-                  alt={ambassador.name}
+                  src={leader.image}
+                  alt={leader.name}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 128px, 128px"
+                  sizes="(max-width: 768px) 144px, 144px"
                 />
               </div>
-              <h3 className="text-lg font-bold text-primary mb-1 tracking-tight">
-                {ambassador.name}
+              <h3 className="text-xl font-bold text-primary mb-1 tracking-tight">
+                {leader.name}
               </h3>
-              <p className="text-xs font-bold text-yellow-600 uppercase tracking-widest">
-                {ambassador.role}
+              <p className="text-sm font-semibold text-accent2 uppercase tracking-wider mb-4">
+                {leader.role}
               </p>
+              <a href={leader.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-50 rounded-full shadow-inner text-gray-400 hover:text-primary hover:bg-accent2/10 transition-colors" title="LinkedIn">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+              </a>
             </motion.div>
           ))}
         </motion.div>

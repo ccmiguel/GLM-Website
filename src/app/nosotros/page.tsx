@@ -4,6 +4,24 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Compass, Rocket, Globe } from "lucide-react";
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  Marker,
+  ZoomableGroup,
+} from "react-simple-maps";
+
+const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+
+const markers = [
+  { name: "Bolivia", coordinates: [-63.5887, -16.2902] as [number, number] },
+  { name: "Perú", coordinates: [-75.0152, -9.1900] as [number, number] },
+  { name: "México", coordinates: [-102.5528, 23.6345] as [number, number] },
+  { name: "Colombia", coordinates: [-74.0721, 4.7110] as [number, number] },
+  { name: "Chile", coordinates: [-70.6693, -33.4489] as [number, number] },
+  { name: "Estados Unidos", coordinates: [-95.7129, 37.0902] as [number, number] },
+];
 
 export default function NosotrosPage() {
   const fadeInUp = {
@@ -34,13 +52,13 @@ export default function NosotrosPage() {
             className="flex flex-col items-center"
           >
             {/* Contenedor del logotipo de GLM en un tamaño destacado */}
-            <div className="max-w-xs md:max-w-sm p-8 bg-white/5 backdrop-blur-md rounded-[2.5rem] border border-white/10 shadow-2xl mb-12 hover:scale-[1.02] transition-transform duration-300">
+            <div className="max-w-xs md:max-w-sm mb-12 hover:scale-[1.02] transition-transform duration-300 bg-white p-6 rounded-[2rem] shadow-lg">
               <Image
                 src="/images/Logo_Color-8.png"
                 alt="Global Leadership Makers Logo"
                 width={350}
                 height={100}
-                className="w-full h-auto object-contain filter brightness-0 invert"
+                className="w-full h-auto object-contain"
                 priority
               />
             </div>
@@ -106,6 +124,85 @@ export default function NosotrosPage() {
               })}
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* 2.5 Mapa Interactivo */}
+      <section className="py-32 px-6 md:px-12 lg:px-24 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto flex flex-col items-center gap-12 text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="max-w-3xl mx-auto z-10 text-center"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+              Nuestro impacto en el mundo
+            </h2>
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed font-light">
+              Cada número representa una historia, una iniciativa y un paso hacia un futuro con más oportunidades.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="w-full min-h-[500px] flex justify-center mt-8 bg-gray-50/50 rounded-[2.5rem] p-4 shadow-inner border border-gray-100"
+          >
+            <div className="w-full max-w-5xl aspect-[16/10] relative">
+              <ComposableMap
+                projection="geoMercator"
+                projectionConfig={{
+                  scale: 180,
+                  center: [-85, 10],
+                }}
+                style={{ width: "100%", height: "100%" }}
+              >
+                <ZoomableGroup center={[-85, 10]} maxZoom={3}>
+                  <Geographies geography={geoUrl}>
+                    {({ geographies }) =>
+                      geographies.map((geo) => (
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          fill="#f3f4f6"
+                          stroke="#e5e7eb"
+                          strokeWidth={0.5}
+                          style={{
+                            default: { outline: "none" },
+                            hover: { fill: "#e5e7eb", outline: "none" },
+                            pressed: { outline: "none" },
+                          }}
+                        />
+                      ))
+                    }
+                  </Geographies>
+                  {markers.map(({ name, coordinates }) => (
+                    <Marker key={name} coordinates={coordinates}>
+                      <circle r={10} fill="#10B981" className="animate-pulse opacity-40" />
+                      <circle r={6} fill="#10B981" stroke="#fff" strokeWidth={1.5} className="shadow-md" />
+                      <text
+                        textAnchor="middle"
+                        y={-10}
+                        style={{
+                          fontFamily: "inherit",
+                          fill: "#0A192F",
+                          fontSize: "10px",
+                          fontWeight: "bold",
+                          textShadow: "0px 1px 2px rgba(255, 255, 255, 0.8)",
+                        }}
+                      >
+                        {name}
+                      </text>
+                    </Marker>
+                  ))}
+                </ZoomableGroup>
+              </ComposableMap>
+            </div>
+          </motion.div>
         </div>
       </section>
 

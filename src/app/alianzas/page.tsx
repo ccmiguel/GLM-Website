@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Handshake, HeartHandshake } from "lucide-react";
 
 export default function AlianzasPage() {
@@ -26,7 +27,7 @@ export default function AlianzasPage() {
       title: "Mentores Especializados",
       description: "Aporta tu experiencia y guía a jóvenes líderes en la consolidación de sus proyectos estratégicos.",
       icon: HeartHandshake,
-      image: "/images/CORRIDO/Corrido-9.png",
+      image: "/images/CORRIDO/Corrido-13.png",
     },
     {
       title: "Aliados Estratégicos",
@@ -73,7 +74,7 @@ export default function AlianzasPage() {
                     </div>
                     <Icon className="w-16 h-16 text-[#10B981] relative z-10 group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  
+
                   <div className="p-8 flex flex-col flex-grow items-center text-center">
                     <h3 className="text-2xl font-bold text-primary mb-4">
                       {colab.title}
@@ -102,23 +103,47 @@ export default function AlianzasPage() {
           <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-12">
             Instituciones oficiales con convenios y colaboraciones activas que fortalecen el ecosistema GLM.
           </p>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center max-w-6xl mx-auto">
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 justify-items-center items-center max-w-6xl mx-auto">
             {[
-              "Hub de Innovación de Ingeniería de la UMSA",
-              "Incubadora de Empresas del CIDE",
-              "Fundación Maya",
-              "IE de EMS",
-              "Women Techmakers",
-              "Ecosistema Emprendedor de La Paz"
-            ].map((institucion, idx) => (
+              {
+                name: "Hub de Innovación de Ingeniería de la UMSA",
+                logo: "/images/logos/logo_hubInnovacion.png"
+              },
+              {
+                name: "Incubadora de Empresas del CIDE",
+                logo: "/images/logos/logo_cideUmsa.png"
+              },
+              {
+                name: "Fundación Maya",
+                logo: "/images/logos/logo_fundacionMaya.png"
+              },
+              {
+                name: "IE de EMS",
+                logo: "/images/logos/logo_IEEE.png"
+              },
+              {
+                name: "Women Techmakers",
+                logo: "/images/logos/logo_womenTechmakers.png"
+              },
+              {
+                name: "Ecosistema Emprendedor de La Paz",
+                logo: "/images/logos/logo_ecosistemaEmprendedorLaPaz.png"
+              }
+            ].map((alianza, idx) => (
               <div
                 key={idx}
-                className="flex items-center justify-center p-6 bg-white rounded-2xl border border-gray-200/60 shadow-sm hover:shadow-md hover:border-[#10B981]/25 transition-all duration-300 h-32 text-center"
+                className="w-36 h-36 flex items-center justify-center p-6 bg-white rounded-full border border-gray-200/60 shadow-sm hover:shadow-md hover:border-[#10B981]/25 transition-all duration-300 relative overflow-hidden group"
               >
-                <span className="font-bold text-primary text-sm leading-snug">
-                  {institucion}
-                </span>
+                <div className="relative w-full h-full">
+                  <Image
+                    src={alianza.logo}
+                    alt={alianza.name}
+                    fill
+                    className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    sizes="144px"
+                  />
+                </div>
               </div>
             ))}
           </div>

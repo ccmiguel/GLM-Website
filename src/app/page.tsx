@@ -21,13 +21,11 @@ const heroImages = [
   "/images/hero-1.jpeg",
   "/images/hero-2.jpeg",
   "/images/hero-3.jpeg",
-  "/images/hero-4.jpeg",
-  "/images/hero-5.jpg",
-  "/images/hero-6.jpg"
+  "/images/hero-4.jpeg"
 ];
 
-const queEsGLMImage = "/images/que-es-global.jpg";
-const sobreGLMImage = "/images/proposito.jpeg";
+const queEsGLMImage = "/images/Logo_Color-8.png";
+const sobreGLMImage = "/images/que-es-global.jpg";
 const ctaImage = "/images/call-to-action.jpg";
 
 // Array de marqueeImages declaradas de forma explícita, omitiendo Corrido-2.png, Corrido-5.png y Corrido-9.png
@@ -57,7 +55,7 @@ export default function Home() {
 
     setStatus("sending");
     try {
-      const response = await fetch("https://formspree.io/f/mwvywebj", {
+      const response = await fetch("https://formspree.io/f/mredvwjq", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -184,7 +182,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-sm font-bold text-accent1 uppercase tracking-widest mb-3">
+              <h2 className="text-lg md:text-xl font-bold text-accent1 uppercase tracking-wide mb-3">
                 ¿QUÉ ES GLOBAL LEADERSHIP MAKERS (GLM)?
               </h2>
               <h3 className="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
@@ -210,12 +208,12 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="relative w-full aspect-[16/10] rounded-[2rem] overflow-hidden shadow-2xl">
+              <div className="relative w-full aspect-[16/10] rounded-[2rem] overflow-hidden shadow-2xl bg-white p-8 flex items-center justify-center">
                 <Image
                   src={queEsGLMImage}
-                  alt="Global Leadership Makers - Foto Grupal Oficial"
+                  alt="Global Leadership Makers - Logo Corporativo"
                   fill
-                  className="object-cover"
+                  className="object-contain p-8"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                   quality={100}
                   priority
@@ -331,7 +329,7 @@ export default function Home() {
               <p className="text-accent1 font-semibold tracking-wider uppercase text-sm max-w-xs text-center px-4 mt-2">Proyectos de impacto</p>
             </motion.div>
           </div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -371,30 +369,29 @@ export default function Home() {
               {
                 title: "Formación Estratégica",
                 desc: "Desarrollamos habilidades en liderazgo, innovación, comunicación, empleabilidad y pensamiento estratégico.",
-                icon: Brain
+                iconPath: "/images/iconos_imagen/1.png"
               },
               {
                 title: "Incubación de Proyectos",
                 desc: "Impulsamos ideas desde la validación hasta la ejecución mediante mentorías, metodologías ágiles y acompañamiento.",
-                icon: Rocket
+                iconPath: "/images/iconos_imagen/2.png"
               },
               {
                 title: "Comunidad y Networking",
                 desc: "Conectamos jóvenes con líderes, mentores, aliados y ecosistemas de oportunidades.",
-                icon: Users
+                iconPath: "/images/iconos_imagen/3.png"
               },
               {
                 title: "Experiencias de Alto Impacto",
                 desc: "Creamos eventos, laboratorios, retos, summits y espacios donde el aprendizaje se convierte en acción.",
-                icon: Lightbulb
+                iconPath: "/images/iconos_imagen/4.png"
               },
               {
                 title: "Proyección y Visibilidad",
                 desc: "Ayudamos a que jóvenes potencien su posicionamiento profesional y hagan visible su talento.",
-                icon: Globe2
+                iconPath: "/images/iconos_imagen/5.png"
               }
             ].map((item, idx) => {
-              const Icon = item.icon;
               return (
                 <motion.div
                   key={idx}
@@ -404,8 +401,14 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   className="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-start"
                 >
-                  <div className="w-12 h-12 rounded-full bg-accent1/10 flex items-center justify-center text-accent1 mb-6">
-                    <Icon className="w-6 h-6" />
+                  <div className="relative w-full h-32 mb-6 flex justify-start">
+                    <Image
+                      src={item.iconPath}
+                      alt={item.title}
+                      fill
+                      className="object-contain object-left"
+                      sizes="(max-width: 768px) 100vw, 300px"
+                    />
                   </div>
                   <h4 className="text-xl font-bold text-primary mb-3 tracking-tight">
                     {item.title}
@@ -428,15 +431,20 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-16"
+            className="mb-16 flex flex-col items-center"
           >
             <h2 className="text-sm font-bold text-accent2 uppercase tracking-widest mb-3">Nuestros Programas</h2>
             <h3 className="text-4xl md:text-5xl font-bold text-primary mb-6">
               Programas GLM
             </h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
               Nuestras iniciativas clave diseñadas para potenciar el talento e impulsar tus proyectos hacia nuevas fronteras.
             </p>
+            <a href="/programas" className="inline-block">
+              <Button variant="outline" size="md" className="border-accent2 text-accent2 hover:bg-accent2 hover:text-white transition-all duration-300">
+                Explorar especificaciones completas
+              </Button>
+            </a>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto text-left">
@@ -444,35 +452,34 @@ export default function Home() {
               {
                 title: "PURPOSE LAB",
                 desc: "Laboratorio de liderazgo, propósito y crecimiento estratégico. Un espacio diseñado para fortalecer personas con potencial de liderazgo mediante herramientas, mentoría y experiencias prácticas que transforman su visión en acción.",
-                icon: Compass
+                iconPath: "/images/programas_imagenes/PURPOSE LAB.png"
               },
               {
                 title: "GLM ENTERPRISE LAB",
                 desc: "Estrategia, mentoría y visibilidad para emprendimientos con potencial. GLM enterprise Lab, conecta emprendedores con herramientas estratégicas, mentoría especializada y redes para acelerar el crecimiento de sus negocios.",
-                icon: Briefcase
+                iconPath: "/images/programas_imagenes/GLM ENTERPRISE.png"
               },
               {
                 title: "GLM VIP AMBASSADORS",
-                desc: "Comunidad internacional de líderes con visión global. Programa de alto nivel que conecta líderes, emprendedores y profesionales con oportunidades de networking, posicionamiento y colaboración internacional.",
-                icon: Users
+                desc: "Comunidad internacional de líderes con visión global. Programa de alto nivel que conecta líderes, emprendedores and profesionales con oportunidades de networking, posicionamiento y colaboración internacional.",
+                iconPath: "/images/programas_imagenes/GLM VIP.png"
               },
               {
                 title: "INCUBADORA DE PROYECTOS",
                 desc: "De las ideas a iniciativas con impacto. Acompañamos proyectos desde su validación hasta su desarrollo mediante mentorías, metodologías ágiles y herramientas de sostenibilidad.",
-                icon: Rocket
+                iconPath: "/images/programas_imagenes/Incubadora de proyectos.png"
               },
               {
                 title: "EXPERIENCIAS GLM",
                 desc: "Espacios que conectan talento, innovación y acción. Creamos hackathons, summits, workshops, retos y experiencias de networking donde el aprendizaje se convierte en soluciones reales.",
-                icon: Sparkles
+                iconPath: "/images/programas_imagenes/Experiencias GLM.png"
               },
               {
                 title: "FORMACIÓN Y EMPLEABILIDAD",
                 desc: "Potenciamos perfiles con visión de futuro. Fortalecemos habilidades estratégicas, liderazgo y proyección profesional para abrir puertas en el mercado global.",
-                icon: GraduationCap
+                iconPath: "/images/programas_imagenes/FORMACIÓN Y EMPLEABILIDAD.png"
               }
             ].map((item, idx) => {
-              const Icon = item.icon;
               return (
                 <motion.div
                   key={idx}
@@ -480,25 +487,23 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                  className="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col items-start"
                 >
-                  <div className="space-y-6">
-                    <div className="w-12 h-12 rounded-full bg-accent2/10 flex items-center justify-center text-accent2">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <h4 className="text-xl font-bold text-primary tracking-tight uppercase">
-                      {item.title}
-                    </h4>
-                    <p className="text-base text-gray-600 leading-relaxed font-light">
-                      {item.desc}
-                    </p>
+                  <div className="relative w-full h-32 mb-6 flex justify-start">
+                    <Image
+                      src={item.iconPath}
+                      alt={item.title}
+                      fill
+                      className="object-contain object-left"
+                      sizes="(max-width: 768px) 100vw, 300px"
+                    />
                   </div>
-                  <div className="mt-8 pt-4 border-t border-gray-50">
-                    <a href="#contacto" className="text-accent2 font-semibold flex items-center space-x-2 hover:underline">
-                      <span>Postular ahora</span>
-                      <span className="text-lg">→</span>
-                    </a>
-                  </div>
+                  <h4 className="text-xl font-bold text-primary tracking-tight uppercase mb-3">
+                    {item.title}
+                  </h4>
+                  <p className="text-base text-gray-600 leading-relaxed font-light">
+                    {item.desc}
+                  </p>
                 </motion.div>
               );
             })}
@@ -580,16 +585,15 @@ export default function Home() {
               <button
                 type="submit"
                 disabled={status === "sending" || status === "sent"}
-                className={`w-full py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center space-x-2 transition-all duration-300 ${
-                  status === "sent" ? "bg-accent2" : status === "error" ? "bg-red-500 hover:bg-red-600" : "bg-primary hover:bg-accent2"
-                }`}
+                className={`w-full py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center space-x-2 transition-all duration-300 ${status === "sent" ? "bg-accent2" : status === "error" ? "bg-red-500 hover:bg-red-600" : "bg-primary hover:bg-accent2"
+                  }`}
               >
                 <span>
                   {status === "idle" || status === "error"
                     ? "Enviar Mensaje"
                     : status === "sending"
-                    ? "Enviando..."
-                    : "¡Enviado exitosamente!"}
+                      ? "Enviando..."
+                      : "¡Enviado exitosamente!"}
                 </span>
               </button>
             </form>

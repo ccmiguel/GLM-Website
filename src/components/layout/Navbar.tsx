@@ -24,7 +24,6 @@ export default function Navbar() {
     { name: "Nosotros", path: "/nosotros" },
     { name: "Equipo", path: "/equipo" },
     { name: "Programas", path: "/programas" },
-    { name: "Impacto", path: "/impacto" },
     { name: "Alianzas", path: "/alianzas" },
     { name: "Recursos", path: "/recursos" },
     { name: "Contacto", path: "/#contacto" },

@@ -47,10 +47,10 @@ export function Footer() {
             <a href="https://chat.whatsapp.com/GqAY1v5OocF7pfpHNyVcCz?mode=ac_t" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 rounded-full hover:bg-[#10B981] transition-colors" title="WhatsApp">
               <MessageCircle className="w-5 h-5 text-white" />
             </a>
-            <a href="https://www.tiktok.com/@glm_globalleadershipmakers" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 rounded-full hover:bg-[#10B981] transition-colors" title="TikTok">
-              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.54-4.06-1.41-.66-.49-1.2-1.12-1.57-1.85-.02 2.66.02 5.32-.01 7.98-.13 2.15-1.04 4.31-2.73 5.67-1.9 1.57-4.66 2.06-6.99 1.25-2.79-.97-4.83-3.79-4.71-6.81.1-2.9 2.03-5.69 4.88-6.42 1.4-.38 2.92-.23 4.22.42V7.12c-1.74-.58-3.66-.56-5.38.16-3.08 1.25-5.06 4.7-4.47 8.08.57 3.32 3.51 5.86 6.88 5.75 3.55-.1 6.43-3.06 6.4-6.66V.02h-3.13z"/></svg>
+            <a href="https://www.tiktok.com/@globalleadershipmakers?lang=es-419" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 rounded-full hover:bg-[#10B981] transition-colors" title="TikTok">
+              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.54-4.06-1.41-.66-.49-1.2-1.12-1.57-1.85-.02 2.66.02 5.32-.01 7.98-.13 2.15-1.04 4.31-2.73 5.67-1.9 1.57-4.66 2.06-6.99 1.25-2.79-.97-4.83-3.79-4.71-6.81.1-2.9 2.03-5.69 4.88-6.42 1.4-.38 2.92-.23 4.22.42V7.12c-1.74-.58-3.66-.56-5.38.16-3.08 1.25-5.06 4.7-4.47 8.08.57 3.32 3.51 5.86 6.88 5.75 3.55-.1 6.43-3.06 6.4-6.66V.02h-3.13z" /></svg>
             </a>
-            <a href="https://redglmglobal.blogspot.com" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 rounded-full hover:bg-[#10B981] transition-colors" title="Blogger">
+            <a href="https://globalleadershipmakers.blogspot.com/?fbclid=IwY2xjawSJURVleHRuA2FlbQIxMABicmlkETFIdnZzZ2RPanMyRUNRajREc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHjpWRCZBwcvTW0Ob9YYRPNlrn7mxFTGoJmM6jpEy4Isa-9KlkGigAAF3xE4h_aem_xYBwA4qfQQWTtlcjhRIL1A" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 rounded-full hover:bg-[#10B981] transition-colors" title="Blogger">
               <BookOpen className="w-5 h-5 text-white" />
             </a>
           </div>
