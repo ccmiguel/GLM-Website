@@ -21,12 +21,13 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Inicio", path: "/" },
-    { name: "Sobre nosotros", path: "/nosotros" },
+    { name: "Nosotros", path: "/nosotros" },
+    { name: "Equipo", path: "/equipo" },
     { name: "Programas", path: "/programas" },
     { name: "Impacto", path: "/impacto" },
     { name: "Alianzas", path: "/alianzas" },
-    { name: "Blog/Recursos", path: "/recursos" },
-    { name: "Contacto", path: "/contacto" },
+    { name: "Recursos", path: "/recursos" },
+    { name: "Contacto", path: "/#contacto" },
   ];
 
   return (
